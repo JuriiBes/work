@@ -80,6 +80,11 @@ body {
 		@media (max-width: em(1440)) {
 			padding-top: 39.236111%; /* 565/1440 */
 		}
+		@media (max-width: 61.99875em) {
+  .main__pictures {
+    padding-top: 55%;
+  }
+}
 	}
 	// .main__img
 	&__img {
