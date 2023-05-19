@@ -616,6 +616,11 @@ body.lock {
     padding-top: 39.236111%; /* 565/1440 */
   }
 }
+@media (max-width: 10.112244898em) {
+  .main__pictures {
+    padding-top: 50%; /* 565/1440 */
+  }
+}
 .main__img {
   position: absolute;
   top: 0;
