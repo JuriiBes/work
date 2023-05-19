@@ -59,6 +59,7 @@
     }
     // .header__link
     &__link {
+        display: inline-block;
         padding: rem(14) rem(47);
         border: 2px solid #ffffff;
         transition: all 0.3s;
@@ -154,6 +155,7 @@
     // .menu__items
     &__items {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         column-gap: rem(30);
