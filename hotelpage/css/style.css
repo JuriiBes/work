@@ -616,9 +616,9 @@ body.lock {
     padding-top: 39.236111%; /* 565/1440 */
   }
 }
-@media (max-width: 10.112244898em) {
+@media (max-width: 61.99875em) {
   .main__pictures {
-    padding-top: 50%; /* 565/1440 */
+    padding-top: 55%;
   }
 }
 .main__img {
