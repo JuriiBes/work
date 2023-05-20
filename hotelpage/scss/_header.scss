@@ -202,13 +202,13 @@
         //     width: 0;
         // }
         &::before {
-            top: rem(4);
+            top: rem(5);
             right: 0;
             width: 50%;
             transform: rotate(45deg);
         }
         &::after {
-            bottom: rem(6);
+            bottom: rem(5);
             right: 0;
             width: 50%;
             transform: rotate(-45deg);
