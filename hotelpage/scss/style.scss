@@ -514,6 +514,10 @@ body {
 	.side-right__img-small::before {
 		animation: rating-rotate forwards 3s;
 		animation-delay: 1s;
+		@media (max-width: em(991.98)) {
+			animation: rating-rotate forwards 2s;
+			animation-delay: 0s;
+		}
 	}
 }
 // *__________________________________________ Choice
