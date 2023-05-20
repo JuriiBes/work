@@ -211,6 +211,13 @@ body {
 		align-items: center;
 		line-height: 1.31;
 		color: #565656;
+		@media (any-hover: hover) {
+			&:hover {
+				.service-list__body-icon {
+					transform: rotateY(180deg);
+				}
+			}
+		}
 		@media (max-width: em(991.98)) {
 			gap: rem(10);
 			justify-content: center;
@@ -221,10 +228,11 @@ body {
 	}
 	// .service-list__body-icon
 	&__body-icon {
+		transition: transform 0.5s;
 	}
 	// .service-list__icon
 	&__icon {
-		transform: translateX(+60%);
+		transform: translateX(60%);
 
 		@media (max-width: em(399.98)) {
 			width: rem(62);
