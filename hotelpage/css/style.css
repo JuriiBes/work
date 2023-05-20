@@ -1081,6 +1081,14 @@ body.lock {
   animation: rating-rotate forwards 3s;
   animation-delay: 1s;
 }
+@media (max-width: 61.99875em) {
+  .show .side-right__img-main::before,
+  .show .side-right__img-main::after,
+  .show .side-right__img-small::before {
+    animation: rating-rotate forwards 2s;
+    animation-delay: 0s;
+  }
+}
 
 .choice {
   padding: 4.1875rem 0 6.25rem;
