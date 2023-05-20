@@ -328,13 +328,13 @@ input[type=search i] {
   }
 }
 .menu-open .header__burger::before {
-  top: 0.25rem;
+  top: 0.3125rem;
   right: 0;
   width: 50%;
   transform: rotate(45deg);
 }
 .menu-open .header__burger::after {
-  bottom: 0.375rem;
+  bottom: 0.3125rem;
   right: 0;
   width: 50%;
   transform: rotate(-45deg);
@@ -756,6 +756,11 @@ body.lock {
   line-height: 1.31;
   color: #565656;
 }
+@media (any-hover: hover) {
+  .service-list__item:hover .service-list__body-icon {
+    transform: rotateY(180deg);
+  }
+}
 @media (max-width: 61.99875em) {
   .service-list__item {
     gap: 0.625rem;
@@ -766,6 +771,9 @@ body.lock {
   .service-list__item {
     gap: 0rem;
   }
+}
+.service-list__body-icon {
+  transition: transform 0.5s;
 }
 .service-list__icon {
   transform: translateX(60%);
