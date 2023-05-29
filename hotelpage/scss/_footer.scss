@@ -151,7 +151,11 @@
     @media (max-width: em(799.98)) {
         grid-template-columns: repeat(2, 1fr);
     }
-
+    @media (max-width: em(649.98)) {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
     // .sub-footer__ghost
     &__ghost {
         @media (max-width: em(799.98)) {
@@ -168,6 +172,9 @@
         @media (max-width: em(799.98)) {
             text-align: start;
         }
+        @media (max-width: em(649.98)) {
+            text-align: center;
+        }
     }
     // .sub-footer__social
     &__social {
@@ -176,7 +183,11 @@
 .social {
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
     gap: rem(10);
+    @media (max-width: em(649.98)) {
+        justify-content: center;
+    }
     // .social__link
     &__link {
         position: relative;
