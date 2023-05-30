@@ -595,7 +595,7 @@ body.lock {
 }
 .main__title {
   position: relative;
-  max-width: 36.5625rem;
+  width: 36.5625rem;
   font-weight: 700;
   font-size: 3.125rem;
   line-height: 1.33;
@@ -1589,16 +1589,17 @@ body.lock {
 @media (max-width: 56.24875em) {
   .entertainment {
     grid-template-columns: 1fr;
+    transform: translate(0rem, 0rem);
   }
 }
-@media (max-width: 56.24875em) {
+@media (max-width: 46.87375em) {
   .entertainment {
-    transform: translate(0rem, 0rem);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 40.62375em) {
   .entertainment {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 33.74875em) {
