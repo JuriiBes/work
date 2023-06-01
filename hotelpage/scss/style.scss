@@ -46,7 +46,7 @@ body {
 	// .main__title
 	&__title {
 		position: relative;
-		width: rem(585);
+		max-width: rem(585);
 		font-weight: 700;
 		font-size: rem(50);
 		line-height: 1.33;
