@@ -1,0 +1,243 @@
+@import url("reset.css");
+@import url("common.css");
+
+body {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.wrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+h1{
+    padding-top: 35px;
+    text-align: center;
+    font-size: 35px;
+    color: aliceblue;
+}
+.cube {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    /* margin: 200px auto; */
+    top:30vh;
+    left:43vw;
+    /* transform: translate(-50%,-50%); */
+}
+.side-one,
+.side-two,
+.side-three,
+.side-four,
+.side-five,
+.side-six {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    position: absolute;
+    border: 2px solid yellow;
+    backface-visibility: hidden;
+}
+[class$="__item"] {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: black;
+    border-radius: 50%;
+}
+/* *______________________________________________Side One */
+.side-one {
+    background-color: rgba(255, 255, 0, 0.8);
+}
+.side-one__item {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* *______________________________________________Side Twoo */
+.side-two {
+    background-color: rgba(0, 128, 0, 0.8);
+}
+.side-two__item:nth-child(1) {
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+.side-two__item:nth-child(2) {
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+/* *______________________________________________Side Three */
+.side-three {
+    background-color: rgba(0, 92, 128, 0.8);
+}
+.side-three__item:nth-child(1) {
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+.side-three__item:nth-child(2) {
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+.side-three__item:nth-child(3) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* *______________________________________________Side Four */
+.side-four {
+    background-color: rgba(28, 0, 128, 0.8);
+}
+.side-four__item:nth-child(1) {
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+.side-four__item:nth-child(2) {
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+.side-four__item:nth-child(3) {
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+.side-four__item:nth-child(4) {
+    top: 25%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+/* *______________________________________________Side Five */
+.side-five {
+    background-color: rgba(128, 0, 105, 0.8);
+}
+.side-five__item:nth-child(1) {
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+.side-five__item:nth-child(2) {
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+.side-five__item:nth-child(3) {
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+.side-five__item:nth-child(4) {
+    top: 25%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+.side-five__item:nth-child(5) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* *______________________________________________Side Six */
+.side-six {
+    background-color: rgba(128, 0, 0, 0.8);
+}
+.side-six__item:nth-child(1) {
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+.side-six__item:nth-child(2) {
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+.side-six__item:nth-child(3) {
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+.side-six__item:nth-child(4) {
+    top: 25%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+.side-six__item:nth-child(5) {
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+.side-six__item:nth-child(6) {
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+
+/* *______________________________________________position */
+.wrapper {
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+}
+.cube {
+    transform-style: preserve-3d;
+    animation: cube 20s linear infinite;
+}
+
+@keyframes cube {
+    0% {
+        transform: rotateX(0deg) rotateY(15deg) scale(1);
+    }
+
+    50% {
+        transform: rotateX(200deg) rotateY(150deg) scale(1.5);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(375deg) scale(1);
+    }
+}
+
+.side-one {
+    transform: translateZ(125px);
+}
+.side-two {
+    transform: translateY(125px) rotateX(-90deg);
+}
+.side-three {
+    transform: translateZ(-125px) rotateX(180deg);
+}
+.side-four {
+    transform: translateY(-125px) rotateX(-270deg);
+}
+.side-five {
+    transform: translateX(-125px) rotateY(270deg);
+}
+.side-six {
+    transform: translateX(125px) rotateY(-270deg);
+}
+
+.cube:hover .side-one {
+    transform: translateZ(225px);
+    backface-visibility: visible;
+}
+.cube:hover .side-two {
+    transform: translateY(225px) rotateX(-90deg);
+    backface-visibility: visible;
+}
+.cube:hover .side-three {
+    transform: translateZ(-225px) rotateX(180deg);
+    backface-visibility: visible;
+}
+.cube:hover .side-four {
+    transform: translateY(-225px) rotateX(-270deg);
+    backface-visibility: visible;
+}
+.cube:hover .side-five {
+    transform: translateX(-225px) rotateY(270deg);
+    backface-visibility: visible;
+}
+.cube:hover .side-six {
+    transform: translateX(225px) rotateY(-270deg);
+    backface-visibility: visible;
+}
