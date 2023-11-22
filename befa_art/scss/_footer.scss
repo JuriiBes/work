@@ -1,0 +1,120 @@
+.footer {
+    background-color: #b91616;
+    padding: rem(58) 0;
+    @media (max-width: em(1085)) {
+        padding: rem(35) 0;
+    }
+    // .footer__container
+    &__container {
+    }
+    // .footer__body
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width: em(1085)) {
+            flex-direction: column;
+            gap: rem(30);
+        }
+    }
+    // .footer__title
+    &__title {
+        font-family: "Geometria";
+        font-weight: 500;
+        font-size: rem(24);
+        line-height: 1.25; /* 30/24 */
+    }
+    // .footer__list-contact
+    &__list-contact {
+        display: flex;
+        gap: rem(35);
+        align-items: center;
+        font-family: "KyivType Sans";
+        font-weight: 500;
+        font-size: rem(18);
+        line-height: 1.22; /* 22/18 */
+        @media (max-width: em(1085)) {
+            line-height: 1.5; /* 22/18 */
+            text-align: center;
+        }
+        @media (max-width: em(500)) {
+            flex-direction: column;
+            gap: rem(15);
+            font-size: rem(16);
+        }
+    }
+    // .footer__phone
+    &__phone {
+        & span {
+            transition: color 0.5s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                & span {
+                    color: #d7a5cf;
+                }
+            }
+        }
+    }
+    // .footer__mail
+    &__mail {
+        & span {
+            transition: color 0.5s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                & span {
+                    color: #d7a5cf;
+                }
+            }
+        }
+    }
+    // .footer__instagram
+    &__instagram {
+        & span {
+            transition: color 0.5s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                & span {
+                    color: #d7a5cf;
+                }
+            }
+        }
+    }
+    // footer__button-up
+    &__button-up {
+        @media (any-hover: hover) {
+            &:hover {
+                .footer__link {
+                    &::after {
+                        transform: translate(-90px, 0);
+                        transition: all 0.7s;
+                        pointer-events: auto;
+                    }
+                }
+            }
+        }
+    }
+    //.footer__link
+    &__link {
+        position: relative;
+        display: inline-block;
+        font-family: "Geometria";
+        font-weight: 500;
+        font-size: rem(18);
+        line-height: 1.27; /* 23/18 */
+        padding: rem(5) rem(10);
+        &::after {
+            content: "";
+            display: inline-block;
+            margin-left: rem(15);
+            vertical-align: bottom;
+            width: rem(12);
+            height: rem(23);
+            background: url(../img/icon/arrow_up.svg) center no-repeat;
+            transition: all 0.7s;
+            pointer-events: none;
+        }
+    }
+}

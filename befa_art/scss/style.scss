@@ -1,0 +1,799 @@
+@use "sass:math";
+@import "_mixins.scss";
+@import "_reset.scss";
+@import "_common.scss";
+@import "_header.scss";
+@import "_footer.scss";
+@font-face {
+	font-family: "Geometria";
+	src: url("../fonts/geometria/geometria-medium.woff2") format("woff2"),
+		url("../fonts/geometria/geometria-medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Geometria";
+	src: url("../fonts/geometria/geometria-extrabold.woff2") format("woff2"),
+		url("../fonts/geometria/geometria-extrabold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Geometria";
+	src: url("../fonts/geometria/geometria-bold.woff2") format("woff2"),
+		url("../fonts/geometria/geometria-bold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Geometria";
+	src: url("../fonts/geometria/geometria.woff2") format("woff2"),
+		url("../fonts/geometria/geometria.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "KyivTypeSans";
+	src: url("../fonts/kyiv_type/kyivtypesans-regular2.woff2") format("woff2"),
+		url("../fonts/kyiv_type/kyivtypesans-regular2.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "KyivTypeSans";
+	src: url("../fonts/kyiv_type/kyivtypesans-medium2.woff2") format("woff2"),
+		url("../fonts/kyiv_type/kyivtypesans-medium2.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "KyivTypeSans";
+	src: url("../fonts/kyiv_type/kyivtypesans-bold2.woff2") format("woff2"),
+		url("../fonts/kyiv_type/kyivtypesans-bold2.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Acworth";
+	src: url("../fonts/acworth/acworthbold.woff2") format("woff2"),
+		url("../fonts/acworth/acworthbold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+* {
+	scroll-behavior: smooth;
+}
+body {
+	color: #ffffff;
+	background: url(../img/body.png) 0 0 / cover no-repeat fixed, #111111;
+	transition: all 0.7s;
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+// *___________________________________________ Head
+.head {
+	padding: rem(100) 0 rem(126) 0;
+	margin-bottom: 1px;
+	@media (max-width: em(1400)) {
+		padding: rem(100) 0 rem(110) 0;
+	}
+	@media (max-width: em(1300)) {
+		padding: rem(80) 0 rem(100) 0;
+	}
+	@media (max-width: em(1200)) {
+		padding: rem(70) 0 rem(90) 0;
+	}
+	@media (max-width: em(991.98)) {
+		padding: rem(70) 0 rem(30) 0;
+	}
+	@media (max-width: em(600)) {
+		padding: rem(70) 0 rem(45) 0;
+	}
+	// .head__container
+	&__container {
+	}
+	// .head__body
+	&__body {
+		position: relative;
+		width: 100%;
+		padding: rem(160) 0 rem(170) 0;
+		@media (max-width: em(1300)) {
+			padding: rem(160) 0 rem(170) 0;
+		}
+		@media (max-width: em(699.98)) {
+			padding: rem(160) 0 rem(195) 0;
+		}
+		@media (max-width: em(649.98)) {
+			padding: rem(150) 0 rem(150) 0;
+		}
+		@media (max-width: em(649.98)) {
+			padding: rem(140) 0 rem(140) 0;
+		}
+		@media (max-width: em(599.98)) {
+			padding: rem(130) 0 rem(130) 0;
+		}
+	}
+	// .head__text
+	&__text {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		animation: text-head 1.8s forwards;
+		animation-delay: 1.5s;
+		pointer-events: none;
+		@keyframes text-head {
+			0% {
+				transform: translateY(-25%);
+				opacity: 0;
+			}
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+	}
+	// .head__sub-title
+	&__sub-title {
+		font-family: "Geometria";
+		font-weight: 700;
+		font-size: rem(36);
+		line-height: 1.25; /* 45/36 */
+		margin-bottom: rem(30);
+		@media (max-width: em(1500)) {
+			font-size: calc((1vw + 1vh) * 2);
+		}
+	}
+	// .head__title
+	&__title {
+		font-family: "Acworth";
+		font-weight: 700;
+		font-size: rem(220);
+		line-height: 0.8; /* 243/220 */
+		@media (max-width: em(1250)) {
+			font-size: rem(200);
+		}
+		@media (max-width: em(1150)) {
+			font-size: rem(180);
+		}
+		@media (max-width: em(991.98)) {
+			font-size: rem(150);
+		}
+		@media (max-width: em(849.98)) {
+			font-size: rem(140);
+		}
+		@media (max-width: em(769.98)) {
+			font-size: rem(130);
+		}
+		@media (max-width: em(699.98)) {
+			font-size: rem(100);
+		}
+		@media (max-width: em(549.98)) {
+			font-size: rem(80);
+		}
+		@media (max-width: em(449.98)) {
+			font-size: rem(65);
+		}
+	}
+	// .head__pictures
+	&__pictures {
+	}
+}
+.img-head {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	// .img-head__items
+	&__items {
+		display: grid;
+		grid-template-columns: 30.935252% 65.467626%;
+		row-gap: rem(55);
+		column-gap: rem(50);
+		@media (max-width: em(991.98)) {
+			row-gap: rem(30);
+			column-gap: rem(30);
+		}
+		@media (max-width: em(699.98)) {
+			grid-template-columns: 48% 52%;
+			row-gap: rem(15);
+			column-gap: rem(15);
+		}
+	}
+	// .img-head__item
+	&__item {
+		position: relative;
+		width: 100%;
+		padding-top: 70%; /* 280/430 */
+		@media (max-width: em(1300)) {
+			padding-top: 72%;
+		}
+		@media (max-width: em(1250)) {
+			padding-top: 75%;
+		}
+		@media (max-width: em(1200)) {
+			padding-top: 78%;
+		}
+		@media (max-width: em(1150)) {
+			padding-top: 82%;
+		}
+		@media (max-width: em(1100)) {
+			padding-top: 87%;
+		}
+		@media (max-width: em(1050)) {
+			padding-top: 92%;
+		}
+		@media (max-width: em(1050)) {
+			padding-top: 92%;
+		}
+		@media (max-width: em(950)) {
+			padding-top: 98%;
+		}
+		@media (max-width: em(900)) {
+			padding-top: 102%;
+		}
+		@media (max-width: em(850)) {
+			padding-top: 108%;
+		}
+		@media (max-width: em(800)) {
+			padding-top: 113%;
+		}
+		@media (max-width: em(760)) {
+			padding-top: 118%;
+		}
+		@media (max-width: em(720)) {
+			padding-top: 110%;
+		}
+		@media (max-width: em(699.98)) {
+			padding-top: 80%;
+		}
+		@media (max-width: em(649.98)) {
+			padding-top: 75%;
+		}
+		@media (max-width: em(549.98)) {
+			padding-top: 85%;
+		}
+		@media (max-width: em(519.98)) {
+			padding-top: 90%;
+		}
+		@media (max-width: em(489.98)) {
+			padding-top: 95%;
+		}
+		@media (max-width: em(459.98)) {
+			padding-top: 100%;
+		}
+		@media (max-width: em(429.98)) {
+			padding-top: 105%;
+		}
+		@media (max-width: em(399.98)) {
+			padding-top: 115%;
+		}
+		@media (max-width: em(379.98)) {
+			padding-top: 122%;
+		}
+		@media (max-width: em(349.98)) {
+			padding-top: 135%;
+		}
+
+		&:nth-child(1) {
+			opacity: 0;
+			animation: child-head 1.2s forwards;
+			animation-delay: 1s;
+		}
+
+		&:nth-child(2) {
+			grid-column: 2/3;
+			grid-row: 1/3;
+			padding-top: 67.582418%; /* 615/910 */
+			opacity: 0;
+			animation: child-head 0.8s forwards;
+			@media (any-hover: hover) {
+				&:hover {
+					.img-head__pictures {
+						transform: scale(1.01);
+					}
+				}
+			}
+		}
+		&:nth-child(3) {
+			opacity: 0;
+			animation: child-head 1.2s forwards;
+			animation-delay: 0.5s;
+		}
+		@keyframes child-head {
+			0% {
+				transform: scale(0.9);
+				opacity: 0;
+			}
+			100% {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				.img-head__pictures {
+					transform: scale(1.02);
+				}
+			}
+		}
+	}
+	// .img-head__pictures
+	&__pictures {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.5s;
+	}
+}
+
+// *_________________________________ Porfolio
+.portfolio {
+	padding-bottom: rem(125);
+	@media (max-width: em(1100)) {
+		padding-bottom: rem(90);
+	}
+	@media (max-width: em(992.98)) {
+		padding-bottom: rem(50);
+	}
+	// .portfolio__container
+	&__container {
+	}
+	// .portfolio__body
+	&__body {
+	}
+	// .portfolio__title
+	&__title {
+		font-family: "Geometria";
+		font-weight: 500;
+		font-size: rem(24);
+		line-height: 1.25; /* 30/24 */
+		text-align: end;
+		margin-bottom: 35px;
+		position: relative;
+		transform: translate(0, 54px);
+		padding-right: rem(46);
+		&::after {
+			content: "";
+			position: absolute;
+			width: 50vw;
+			height: 1px;
+			top: 50%;
+			left: 98.5%;
+			transform: translateY(-50%);
+			background-color: #ffffff;
+			@media (max-width: em(1240)) {
+				left: 96.5%;
+			}
+			@media (max-width: em(650)) {
+				left: 94%;
+			}
+			@media (max-width: em(550)) {
+				left: 92%;
+			}
+			@media (max-width: em(400)) {
+				left: 90%;
+			}
+		}
+		@media (max-width: em(689.98)) {
+			position: static;
+			transform: translate(0, 15px);
+			margin-bottom: 50px;
+		}
+		@media (max-width: em(549.98)) {
+			margin-bottom: 30px;
+		}
+	}
+	// .portfolio__items
+	&__items {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: rem(54);
+		column-gap: rem(50);
+		margin-bottom: rem(58);
+		height: rem(898);
+		overflow: hidden;
+		transition: all 0.7s;
+		@media (max-width: em(1100)) {
+			row-gap: rem(30);
+			column-gap: rem(30);
+			margin-bottom: rem(45);
+		}
+		@media (max-width: em(899.98)) {
+			row-gap: rem(20);
+			column-gap: rem(20);
+		}
+		@media (max-width: em(699.98)) {
+			grid-template-columns: 1fr;
+			// height: rem(570);
+		}
+		@media (max-width: em(499.98)) {
+			row-gap: rem(15);
+		}
+	}
+	// .portfolio__item
+	&__item {
+	}
+	// .portfolio__botton
+	&__button {
+		font-family: "Geometria";
+		font-weight: 800;
+		font-size: rem(18);
+		line-height: 1.27; /* 23/18 */
+		display: flex;
+		justify-content: center;
+		@media (max-width: em(599.98)) {
+			font-size: rem(16);
+		}
+	}
+	// .portfolio__work-button
+	&__work-button {
+		display: inline-block;
+		padding: rem(21) rem(62);
+		border: 2px solid #ffffff;
+		transition: all 0.5s;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #b91616;
+				border: 2px solid #b91616;
+			}
+		}
+		@media (max-width: em(899.98)) {
+			padding: rem(15) rem(42);
+		}
+		@media (max-width: em(599.98)) {
+			padding: rem(15) rem(42);
+		}
+		@media (max-width: em(499.98)) {
+			padding: rem(12) rem(42);
+		}
+	}
+}
+.painting {
+	position: relative;
+	max-height: rem(395);
+	@media (max-width: em(699.98)) {
+		&:nth-child(n + 1) {
+			max-height: 50vh;
+		}
+	}
+	&:nth-child(2n + 2) {
+		transform: translate(0, 54px);
+		@media (max-width: em(699.98)) {
+			transform: translate(0, 0);
+		}
+	}
+
+	// .painting__pictures
+	@media (any-hover: hover) {
+		&:hover {
+			.painting__name {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: auto;
+			}
+			.painting__image {
+				transform: scale(1.02);
+			}
+		}
+	}
+	&__pictures {
+		position: relative;
+		width: 100%;
+		padding-top: 58.955224%; /* 395/670 */
+		overflow: hidden;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: all 3s;
+		transform: scale(0.95);
+		@media (max-width: em(699.98)) {
+			padding-top: 0;
+			height: 50vh;
+		}
+	}
+	// .painting__image
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: all 0.6s;
+	}
+	// .painting__name
+	&__name {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: all 0.7s;
+		@media (max-width: em(991.98)) {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+			top: 75%;
+			height: rem(60);
+			transition: all 0.6s;
+		}
+		@media (max-width: em(849.98)) {
+			top: 70%;
+		}
+		@media (max-width: em(699.98)) {
+			top: 75%;
+		}
+	}
+	// .painting__title
+	&__title {
+		font-family: "Acworth";
+		font-weight: 700;
+		font-size: rem(36);
+		line-height: 1.11; /* 40/36 */
+		text-align: center;
+		vertical-align: center;
+		@media (max-width: em(991.98)) {
+			font-size: rem(22);
+		}
+	}
+	// .painting__button-info
+	&__button-info {
+		position: absolute;
+		top: rem(25);
+		right: rem(24);
+		background: transparent;
+		@media (max-width: em(991.98)) {
+			top: rem(15);
+			right: rem(15);
+		}
+	}
+	// .painting__button
+	&__button {
+	}
+	// .painting__info
+	&__info {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		font-family: "Geometria";
+		font-size: rem(20);
+		line-height: 1.25; /* 25/20 */
+		background-color: rgba(0, 0, 0, 0.5);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: all 0.7s;
+		@media (max-width: em(991.98)) {
+			font-size: rem(18);
+		}
+	}
+	// .painting__options
+	&__options {
+		width: 100%;
+		font-weight: 400;
+		margin-bottom: rem(21);
+		max-width: rem(528);
+		padding: 0 rem(15) 0;
+		text-align: start;
+	}
+	// .painting__text
+	&__text {
+		font-weight: 700;
+		max-width: rem(528);
+		padding: 0 rem(15);
+	}
+	// .painting__button-close
+	&__button-close {
+		position: absolute;
+		top: rem(32);
+		right: rem(27);
+		background: transparent;
+	}
+}
+.show {
+	.painting__pictures {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		transform: scale(1);
+	}
+}
+.info-open {
+	&.painting {
+		&:hover {
+			.painting__name {
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+			}
+		}
+	}
+	.painting__info {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+}
+
+// *______________________________________ About me
+.about-me {
+	margin-bottom: rem(179);
+	@media (max-width: em(1100)) {
+		margin-bottom: rem(90);
+	}
+	@media (max-width: em(992.98)) {
+		margin-bottom: rem(50);
+	}
+	// .about-me__container
+	&__container {
+		margin-bottom: rem(54);
+		@media (max-width: em(992.98)) {
+			margin-bottom: rem(25);
+		}
+	}
+	// .about-me__title
+	&__title {
+		position: relative;
+		font-family: "Geometria";
+		font-weight: 500;
+		font-size: rem(24);
+		line-height: 1.25; /* 30/24 */
+		color: #e4e4e4;
+		&:before {
+			content: "";
+			position: absolute;
+			width: 50vw;
+			height: 1px;
+			top: 50%;
+			right: 101.5%;
+			transform: translateY(-50%);
+			background-color: #e4e4e4;
+			@media (max-width: em(991.98)) {
+				right: 98%;
+			}
+		}
+		@media (max-width: em(991.98)) {
+			padding-left: 25px;
+		}
+	}
+	// about-me__body
+	&__body {
+		max-width: rem(1655);
+		margin: 0 auto;
+	}
+	// .about-me__info
+	&__info {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+	// .about-me__text
+	&__text {
+		position: relative;
+		left: 8%;
+		width: 100%;
+		font-family: "Acworth";
+		font-weight: 700;
+		font-size: rem(80);
+		line-height: 1.1; /* 88/80 */
+		padding: rem(96) 0;
+		background: url(../img/photo_author/photo.webp) 100% 50% no-repeat;
+		@media (max-width: em(1500)) {
+			font-size: calc((1vw + 0.5vh) * 5);
+		}
+		@media (max-width: em(1300)) {
+			font-size: calc((1vw + 0.3vh) * 5);
+		}
+		@media (max-width: em(992.98)) {
+			font-size: calc((1vw + 0.3vh) * 4);
+			background: url(../img/photo_author/photo.webp) 70% 25% no-repeat;
+			left: 0;
+			padding-left: 15px;
+		}
+		@media (max-width: em(825)) {
+			padding: rem(60) 0 rem(60) rem(15);
+			background: url(../img/photo_author/photo.webp) 70% 50% no-repeat;
+		}
+		@media (max-width: em(480)) {
+			font-size: rem(26);
+			padding: rem(250) rem(15) rem(25) rem(15);
+		}
+		& p {
+			width: rem(1150);
+			@media (max-width: em(1500)) {
+				width: 75vw;
+			}
+
+			@media (max-width: em(1300)) {
+				width: 65vw;
+			}
+			@media (max-width: em(992.98)) {
+				width: 55vw;
+			}
+			@media (max-width: em(480)) {
+				width: 100%;
+			}
+		}
+		& span {
+			color: #b91616;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			width: 50vw;
+			height: rem(56);
+			top: rem(140);
+			right: 101.5%;
+			transform: translateY(-50%);
+			background-color: #b91616;
+			@media (max-width: em(1500)) {
+				height: calc((1vw + 0.5vh) * 3.8);
+			}
+			@media (max-width: em(1298)) {
+				top: rem(137);
+			}
+			@media (max-width: em(1250)) {
+				height: calc((1vw + 0.4vh) * 3.8);
+			}
+			@media (max-width: em(1100)) {
+				height: calc((1vw + 0.3vh) * 3.8);
+			}
+			@media (max-width: em(992.98)) {
+				height: 0;
+			}
+		}
+	}
+}
+.deu-text {
+	font-size: rem(75);
+	@media (max-width: em(1300)) {
+		font-size: calc((1vw + 0.5vh) * 4);
+	}
+	@media (max-width: em(1300)) {
+		font-size: calc((1vw + 0.3vh) * 3.5);
+	}
+	@media (max-width: em(992.98)) {
+		font-size: calc((1vw + 0.3vh) * 3);
+	}
+	@media (max-width: em(480)) {
+		font-size: rem(26);
+	}
+}
