@@ -1,11 +1,90 @@
-"use strict";
-window.addEventListener("load", pageLoaded);
-function pageLoaded(e) {
-  //textType();
+// * ------------------------------ responsive properties
+function resizeProperty(elementsArray) {
+  elementsArray.forEach((element) => {
+    if (element.minWidth <= innerWidth && innerWidth <= element.maxWidth) {
+      let percentResize =
+        (element.maxWidth - innerWidth) / (element.maxWidth - element.minWidth);
+      let bodyForChange = document.querySelector(
+        `.${element.elementForChange}`
+      );
+
+      bodyForChange.style[element.property] =
+        element.maxSize -
+        (element.maxSize - element.minSize) * percentResize +
+        "px";
+    }
+  });
 }
 
-document.addEventListener("click", documentClickInfoClose);
-// window.addEventListener("scroll", windowScroll);
+let arrayElements = [
+
+  {
+    elementForChange: "about-me__text",
+    property: "fontSize",
+    maxWidth: 1440,
+    minWidth: 320,
+    maxSize: 80,
+    minSize: 24,
+  },
+  {
+    elementForChange: "head__sub-title",
+    property: "fontSize",
+    maxWidth: 1440,
+    minWidth: 320,
+    maxSize: 45,
+    minSize: 24,
+  },
+  {
+    elementForChange: "head__title",
+    property: "fontSize",
+    maxWidth: 1440,
+    minWidth: 320,
+    maxSize: 220,
+    minSize: 65,
+  },
+];
+
+resizeProperty(arrayElements);
+
+addEventListener("resize", (e) => {
+  resizeProperty(arrayElements);
+
+  if (buttonMore.dataset.status === "hide") {
+    bodyChangeStyle.style.maxHeight = bodyChangeStyle.scrollHeight + "px";
+  }
+});
+// * ------------------------------end responsive properties
+function changeInnerTextButton() {
+  let checkLang = document.querySelector(".menu-choise__active").dataset.lang;
+  let result;
+  if (checkLang === "en") {
+    if (buttonMore.dataset.status === "more") {
+      result = "Hide works";
+    } else {
+      result = "Load more";
+    }
+  }
+  if (checkLang === "deu") {
+    if (buttonMore.dataset.status === "more") {
+      result = "Ausblenden";
+    } else {
+      result = "Mehr laden";
+    }
+  }
+  if (checkLang === "ua") {
+    if (buttonMore.dataset.status === "more") {
+      result = "Сховати";
+    } else {
+      result = "Показати ще";
+    }
+  }
+  return result;
+}
+
+addEventListener("click", documentClickInfoClose);
+
+let buttonMore = document.getElementById("button-more");
+let bodyChangeStyle = document.querySelector(".portfolio__items-hidden");
 
 function documentClickInfoClose(e) {
   if (e.target.closest(".header__burger")) {
@@ -24,29 +103,21 @@ function documentClickInfoClose(e) {
     const parentInfoClose = e.target.closest(".painting");
     parentInfoClose.classList.remove("info-open");
   }
-  if (e.target.closest(".portfolio__work-button")) {
-    const portfolioButton = document.querySelector(".portfolio__work-button");
-    portfolioButton.classList.toggle("more");
 
-    if (portfolioButton.classList.contains("more")) {
-      portfolioButton.innerHTML = "Hide works";
-      const portfolioItems = document.querySelector(".portfolio__items");
-      portfolioItems.style.height = portfolioItems.scrollHeight + "px";
-      portfolioItems.style.overflow = `visible`;
+  if (e.target.closest(".portfolio__work-button")) {
+    if (buttonMore.dataset.status === "more") {
+      buttonMore.innerText = `${changeInnerTextButton()}`;
+      buttonMore.dataset.status = "hide";
+      bodyChangeStyle.style.maxHeight = bodyChangeStyle.scrollHeight + "px";
+      bodyChangeStyle.style.opacity = 1;
     } else {
-      portfolioButton.innerHTML = "Load more";
-      const portfolioItems = document.querySelector(".portfolio__items");
-      const portfolioItem = document.querySelector(".portfolio__item");
-      const resultItem = portfolioItem.offsetHeight;
-      portfolioItems.style.overflow = `hidden`;
-      portfolioItems.style.height = resultItem * 2 + 100 + "px";
+      buttonMore.innerText = `${changeInnerTextButton()}`;
+      buttonMore.dataset.status = "more";
+      bodyChangeStyle.style.maxHeight = null;
+      bodyChangeStyle.style.opacity = 0;
     }
   }
 }
-
-// window.addEventListener("resize", function (e) {
-
-// });
 
 let options = {
   root: null,
